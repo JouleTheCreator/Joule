@@ -1,0 +1,3 @@
+seja e = entrada("Diga seu Nome ")
+
+imprimir ("Olá, " + e)

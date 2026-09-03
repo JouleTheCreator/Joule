@@ -1,0 +1,8 @@
+seja j = analisarNumero(entrada("Digite um número "))
+seja e = analisarNumero(entrada("Digite outro número "))
+
+imprimir ("O resultado da soma é: " + (j + e))
+imprimir ("O resultado da Multiplicação é " + (j * e ))
+imprimir ("O resultado da divisão é: " + (j / e))
+imprimir ("O resultado da subtração é: " + (j - e))
+imprimir ("O resultado do módulo é: " + (j % e))

@@ -1,0 +1,9 @@
+// Este código é apenas um comentário usamos "//" para comentários de uma linha só
+
+/* 
+Este código também é um comentário
+mas esse em específico pode ocupar várias linhas ao longo
+do código  usamos "/*" para declarção de comentários de linhas múltiplas
+e usamos "*/" para terminar a declarção de comentários de linhas múltiplas
+*/
+

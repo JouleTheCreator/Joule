@@ -1,0 +1,22 @@
+{
+  "name": "joule",
+  "version": "1.0.0",
+  "description": "Interpretador da linguagem Joule — uma linguagem de programação em português",
+  "main": "dist/main.js",
+  "bin": {
+    "joule": "./bin/joule.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/main.js",
+    "prelink": "npm run build"
+  },
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.43",
+    "@types/readline-sync": "^1.4.4",
+    "typescript": "^5.4.0"
+  }
+}

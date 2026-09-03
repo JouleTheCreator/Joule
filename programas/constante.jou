@@ -1,0 +1,9 @@
+constante nome = "Joule"
+
+
+/*
+Torne a primeira declarção um comentário e rode o código
+constante nome = "Joules"
+*/
+
+imprimir(nome)

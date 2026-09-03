@@ -1,0 +1,14 @@
+seja idade = analizarNumero(entrada("Diga qual é a sua idade "))
+
+se idade < 13 {
+    imprimir("Crianca")
+}
+senaose idade < 18 {
+    imprimir("Adolescente")
+}
+senaose idade < 60 {
+    imprimir("Adulto")
+}
+senao {
+    imprimir("Idoso")
+}
