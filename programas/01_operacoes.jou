@@ -1,0 +1,12 @@
+//seja: cria uma varivel
+
+seja numero1 = 20
+seja numero2 = 10
+
+// uso dos operadores aritmeticos
+
+imprimir ("O resultado da soma é: " + (numero1 + numero2))              //  30
+imprimir ("O resultado da Multiplicação é " + (numero1 * numero2))      //  200  
+imprimir ("O resultado da divisão é: " + (numero1 / numero2))           //  2
+imprimir ("O resultado da subtração é: " + (numero1 - numero2))         //  10
+imprimir ("O resultado do módulo é: " + (numero1 % numero2))            //  0

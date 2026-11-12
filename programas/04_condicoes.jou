@@ -1,0 +1,18 @@
+// Uso de condicoes
+
+seja idade = 45
+
+// se: inicia uma estrutra de condicao
+// masse: umas das opcoes possiveis para "se"
+se idade < 17 {
+    imprimir("Você é uma criança")
+}
+masse idade < 59 {
+    imprimir("Você é um adulto")
+}
+masse idade == 67 {
+    imprimir("67 Six-Seven")
+}
+senao {
+    imprimir("Você é um idoso")
+}

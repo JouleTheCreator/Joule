@@ -1,0 +1,27 @@
+// mat: realiza operacoes matematicas mais complexas
+// .pot: calcula potenciacao
+// .raiz: calcula raiz quadrada de um numero
+// .abs: calcula o valor absoluto ou modulo
+// .sen: calcula o seno de um numero
+// .cos: calcula o cosseno de um numero
+// .tan: calcula a tangente de um numero
+// .pi: imprime o valor de pi
+// .aleat: escolhe um numero aleatorio
+
+imprimir(mat.pot(2, 10))     // 1024  (2 elevado a 10)
+imprimir(mat.raiz(144))      // 12
+imprimir(mat.abs(-7))        // 7
+imprimir(mat.piso(3.9))      // 3     (arredonda pra baixo)
+imprimir(mat.teto(3.1))      // 4     (arredonda pra cima)
+imprimir(mat.arred(3.5))     // 4     (arredonda normal)
+imprimir(mat.pi)             // 3.14159...  <- sem ()
+imprimir(mat.sen(0))         // 0
+imprimir(mat.cos(0))         // 1
+imprimir(mat.tan(0))         // 0
+
+// aleat: numero aleatorio entre 0 e 1
+seja aleatorio = mat.aleat()
+imprimir(aleatorio)
+
+// combinando: raiz quadrada de pi
+imprimir(mat.raiz(mat.pi))

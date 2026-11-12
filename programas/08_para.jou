@@ -1,0 +1,12 @@
+//para: cria uma estrutura de repeticao
+
+imprimir("===Bloco do Loop decrescente")
+
+para (seja i = 10; i > 0; i--) {
+    imprimir(i)
+}
+
+imprimir("===Bloco do Loop crescente==")
+para (seja j = 0; j <= 10; j++) {
+    imprimir(j)
+}

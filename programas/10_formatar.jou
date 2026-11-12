@@ -1,0 +1,5 @@
+//formatar: manipula uma variavel
+
+seja nome = entrada("Digite o seu nome: ")
+
+imprimir(formatar("Ola, {}", nome + "!"))

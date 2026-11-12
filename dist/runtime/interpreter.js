@@ -23,6 +23,8 @@ function avaliar(no, ambiente) {
             return (0, statements_1.avaliarDeclaracao)(no, ambiente);
         case "DeclaracaoTentarPegar":
             return (0, statements_1.avaliarDeclaracao)(no, ambiente);
+        case "DeclaracaoEscolha":
+            return (0, statements_1.avaliarDeclaracao)(no, ambiente);
         case "DeclaracaoFuncao":
             return (0, statements_1.avaliarDeclaracao)(no, ambiente);
         default:

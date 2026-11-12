@@ -25,6 +25,7 @@ export default class AnalisadorSintatico {
     private analisarDeclaracaoFuncao;
     private analisarDeclaracaoSe;
     private analisarSeInterno;
+    private analisarDeclaracaoEscolha;
     private analisarDeclaracaoTentarPegar;
     private analisarDeclaracaoPara;
     analisarDeclaracao(): ast.Declaracao;

@@ -15,35 +15,38 @@ var TipoToken;
     TipoToken[TipoToken["Funcao"] = 5] = "Funcao";
     TipoToken[TipoToken["Se"] = 6] = "Se";
     TipoToken[TipoToken["Senao"] = 7] = "Senao";
-    TipoToken[TipoToken["SenaoSe"] = 8] = "SenaoSe";
+    TipoToken[TipoToken["MasSe"] = 8] = "MasSe";
     TipoToken[TipoToken["Para"] = 9] = "Para";
+    TipoToken[TipoToken["Escolha"] = 10] = "Escolha";
+    TipoToken[TipoToken["Caso"] = 11] = "Caso";
+    TipoToken[TipoToken["Padrao"] = 12] = "Padrao";
     // Agrupamento e Operadores
-    TipoToken[TipoToken["OperadorBinario"] = 10] = "OperadorBinario";
-    TipoToken[TipoToken["Igual"] = 11] = "Igual";
-    TipoToken[TipoToken["Virgula"] = 12] = "Virgula";
-    TipoToken[TipoToken["DoisPontos"] = 13] = "DoisPontos";
-    TipoToken[TipoToken["PontoVirgula"] = 14] = "PontoVirgula";
-    TipoToken[TipoToken["Ponto"] = 15] = "Ponto";
-    TipoToken[TipoToken["AbreParentese"] = 16] = "AbreParentese";
-    TipoToken[TipoToken["FechaParentese"] = 17] = "FechaParentese";
-    TipoToken[TipoToken["AbreChave"] = 18] = "AbreChave";
-    TipoToken[TipoToken["FechaChave"] = 19] = "FechaChave";
-    TipoToken[TipoToken["AbreColchete"] = 20] = "AbreColchete";
-    TipoToken[TipoToken["FechaColchete"] = 21] = "FechaColchete";
-    TipoToken[TipoToken["Maior"] = 22] = "Maior";
-    TipoToken[TipoToken["Menor"] = 23] = "Menor";
-    TipoToken[TipoToken["MaiorIgual"] = 24] = "MaiorIgual";
-    TipoToken[TipoToken["MenorIgual"] = 25] = "MenorIgual";
-    TipoToken[TipoToken["ComparacaoIgual"] = 26] = "ComparacaoIgual";
-    TipoToken[TipoToken["ComparacaoDiferente"] = 27] = "ComparacaoDiferente";
-    TipoToken[TipoToken["Exclamacao"] = 28] = "Exclamacao";
-    TipoToken[TipoToken["E"] = 29] = "E";
-    TipoToken[TipoToken["Comercial"] = 30] = "Comercial";
-    TipoToken[TipoToken["Ou"] = 31] = "Ou";
-    TipoToken[TipoToken["Barra"] = 32] = "Barra";
-    TipoToken[TipoToken["Ternario"] = 33] = "Ternario";
-    TipoToken[TipoToken["FimDoArquivo"] = 34] = "FimDoArquivo";
-    TipoToken[TipoToken["NovaLinha"] = 35] = "NovaLinha";
+    TipoToken[TipoToken["OperadorBinario"] = 13] = "OperadorBinario";
+    TipoToken[TipoToken["Igual"] = 14] = "Igual";
+    TipoToken[TipoToken["Virgula"] = 15] = "Virgula";
+    TipoToken[TipoToken["DoisPontos"] = 16] = "DoisPontos";
+    TipoToken[TipoToken["PontoVirgula"] = 17] = "PontoVirgula";
+    TipoToken[TipoToken["Ponto"] = 18] = "Ponto";
+    TipoToken[TipoToken["AbreParentese"] = 19] = "AbreParentese";
+    TipoToken[TipoToken["FechaParentese"] = 20] = "FechaParentese";
+    TipoToken[TipoToken["AbreChave"] = 21] = "AbreChave";
+    TipoToken[TipoToken["FechaChave"] = 22] = "FechaChave";
+    TipoToken[TipoToken["AbreColchete"] = 23] = "AbreColchete";
+    TipoToken[TipoToken["FechaColchete"] = 24] = "FechaColchete";
+    TipoToken[TipoToken["Maior"] = 25] = "Maior";
+    TipoToken[TipoToken["Menor"] = 26] = "Menor";
+    TipoToken[TipoToken["MaiorIgual"] = 27] = "MaiorIgual";
+    TipoToken[TipoToken["MenorIgual"] = 28] = "MenorIgual";
+    TipoToken[TipoToken["ComparacaoIgual"] = 29] = "ComparacaoIgual";
+    TipoToken[TipoToken["ComparacaoDiferente"] = 30] = "ComparacaoDiferente";
+    TipoToken[TipoToken["Exclamacao"] = 31] = "Exclamacao";
+    TipoToken[TipoToken["E"] = 32] = "E";
+    TipoToken[TipoToken["Comercial"] = 33] = "Comercial";
+    TipoToken[TipoToken["Ou"] = 34] = "Ou";
+    TipoToken[TipoToken["Barra"] = 35] = "Barra";
+    TipoToken[TipoToken["Ternario"] = 36] = "Ternario";
+    TipoToken[TipoToken["FimDoArquivo"] = 37] = "FimDoArquivo";
+    TipoToken[TipoToken["NovaLinha"] = 38] = "NovaLinha";
 })(TipoToken || (exports.TipoToken = TipoToken = {}));
 const PALAVRAS_CHAVE = {
     seja: TipoToken.Seja,
@@ -51,8 +54,11 @@ const PALAVRAS_CHAVE = {
     funcao: TipoToken.Funcao,
     se: TipoToken.Se,
     senao: TipoToken.Senao,
-    senaose: TipoToken.SenaoSe,
+    masse: TipoToken.MasSe,
     para: TipoToken.Para,
+    escolha: TipoToken.Escolha,
+    caso: TipoToken.Caso,
+    padrao: TipoToken.Padrao,
 };
 const CARACTERES_TOKEN = {
     "(": TipoToken.AbreParentese,

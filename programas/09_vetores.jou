@@ -1,0 +1,8 @@
+// Exemplo de vetores ditamos uma variavel e usamos "[]"
+// Para inicializar o vetor
+
+constante frutas = ["Maça", "Banana", "Tangerina"]
+
+imprimir(frutas[0])         // Maça 
+imprimir(frutas[2])         //Tangerina
+imprimir(frutas[1])         //Banana

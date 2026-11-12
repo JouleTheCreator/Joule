@@ -153,10 +153,10 @@ function criarAmbienteGlobal() {
         aleat: (argumentos) => {
             return (0, values_1.VALOR_NUMERO)(Math.random());
         },
-        seno: (argumentos) => {
+        sen: (argumentos) => {
             return (0, values_1.VALOR_NUMERO)(Math.sin(argumentos[0].valor));
         },
-        cosseno: (argumentos) => {
+        cos: (argumentos) => {
             return (0, values_1.VALOR_NUMERO)(Math.cos(argumentos[0].valor));
         },
         tan: (argumentos) => {
@@ -178,11 +178,11 @@ function criarAmbienteGlobal() {
         });
     }
     ambiente.declarar("mat", (0, values_1.VALOR_OBJETO)(propriedadesMat));
-    // Definir função nativa: analisarNumero
-    ambiente.declarar("analizarNumero", (0, values_1.VALOR_NATIVO_FN)("analizarNumero", (argumentos, escopo) => {
+    // Definir função nativa: converterNumero (chamada como convnum no código Joule)
+    ambiente.declarar("convnum", (0, values_1.VALOR_NATIVO_FN)("converterNumero", (argumentos, escopo) => {
         const valor = argumentos[0];
         if (valor.tipo != "texto") {
-            console.error("O argumento de analizarNumero() deve ser do tipo texto");
+            console.error("O argumento de convnum() deve ser do tipo texto");
             process.exit(1);
         }
         return (0, values_1.VALOR_NUMERO)(parseFloat(valor.valor));

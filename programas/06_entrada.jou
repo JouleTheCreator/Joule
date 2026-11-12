@@ -1,3 +1,4 @@
+// entrada: permite ao usuario inserir informacoes
 seja e = entrada("Diga seu Nome ")
 
 imprimir ("Olá, " + e)

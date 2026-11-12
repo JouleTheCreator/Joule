@@ -15,6 +15,8 @@ function avaliarDeclaracao(no, ambiente) {
             return avaliarDeclaracaoSe(no, ambiente);
         case "DeclaracaoPara":
             return avaliarDeclaracaoPara(no, ambiente);
+        case "DeclaracaoEscolha":
+            return avaliarDeclaracaoEscolha(no, ambiente);
         case "DeclaracaoTentarPegar":
             return avaliarDeclaracaoTentarPegar(no, ambiente);
         case "DeclaracaoFuncao":
@@ -25,7 +27,9 @@ function avaliarDeclaracao(no, ambiente) {
     }
 }
 function avaliarDeclaracaoVariavel(declaracao, ambiente) {
-    const valor = declaracao.valor ? (0, interpreter_1.avaliar)(declaracao.valor, ambiente) : (0, values_1.VALOR_NULO)();
+    const valor = declaracao.valor
+        ? (0, interpreter_1.avaliar)(declaracao.valor, ambiente)
+        : (0, values_1.VALOR_NULO)();
     ambiente.declarar(declaracao.identificador, valor);
     return valor;
 }
@@ -50,6 +54,41 @@ function avaliarDeclaracaoPara(declaracao, ambiente) {
         (0, interpreter_1.avaliar)(declaracao.atualizacao, escopo);
     }
     return (0, values_1.VALOR_NULO)();
+}
+function avaliarDeclaracaoEscolha(declaracao, ambiente) {
+    // O discriminante e avaliado UMA unica vez.
+    const valor = (0, interpreter_1.avaliar)(declaracao.discriminante, ambiente);
+    for (const caso of declaracao.casos) {
+        const valorDoCaso = (0, interpreter_1.avaliar)(caso.teste, ambiente);
+        if (saoIguais(valor, valorDoCaso)) {
+            // Cada caso roda no seu proprio escopo: nao existe fall-through,
+            // e variaveis declaradas dentro do caso nao vazam para fora.
+            return avaliarBloco(caso.corpo, new environment_1.default(ambiente));
+        }
+    }
+    if (declaracao.padrao) {
+        return avaliarBloco(declaracao.padrao, new environment_1.default(ambiente));
+    }
+    return (0, values_1.VALOR_NULO)();
+}
+/**
+ * Comparacao usada pelo 'escolha'. Equivale ao == da linguagem:
+ * tipos diferentes nunca sao iguais; objetos, vetores e funcoes
+ * sao comparados por identidade.
+ */
+function saoIguais(a, b) {
+    if (a.tipo !== b.tipo)
+        return false;
+    switch (a.tipo) {
+        case "nulo":
+            return true;
+        case "numero":
+        case "texto":
+        case "booleano":
+            return a.valor === b.valor;
+        default:
+            return a === b;
+    }
 }
 function avaliarDeclaracaoTentarPegar(declaracao, ambiente) {
     try {

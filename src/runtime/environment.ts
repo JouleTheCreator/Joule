@@ -176,10 +176,10 @@ export function criarAmbienteGlobal(): Ambiente {
     aleat: (argumentos) => {
       return VALOR_NUMERO(Math.random());
     },
-    seno: (argumentos) => {
+    sen: (argumentos) => {
       return VALOR_NUMERO(Math.sin(argumentos[0].valor));
     },
-    cosseno: (argumentos) => {
+    cos: (argumentos) => {
       return VALOR_NUMERO(Math.cos(argumentos[0].valor));
     },
     tan: (argumentos) => {
@@ -202,13 +202,13 @@ export function criarAmbienteGlobal(): Ambiente {
   }
   ambiente.declarar("mat", VALOR_OBJETO(propriedadesMat));
 
-  // Definir função nativa: analisarNumero
+  // Definir função nativa: converterNumero (chamada como convnum no código Joule)
   ambiente.declarar(
-    "analisarNumero",
-    VALOR_NATIVO_FN("analisarNumero", (argumentos, escopo) => {
+    "convnum",
+    VALOR_NATIVO_FN("converterNumero", (argumentos, escopo) => {
       const valor = argumentos[0];
       if (valor.tipo != "texto") {
-        console.error("O argumento de analisarNumero() deve ser do tipo texto");
+        console.error("O argumento de convnum() deve ser do tipo texto");
         process.exit(1);
       }
 

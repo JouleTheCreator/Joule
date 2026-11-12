@@ -395,7 +395,7 @@ class AnalisadorSintatico {
         const teste = this.analisarExpressao();
         const corpo = this.analisarCorpo();
         let alternativo;
-        if (this.avancarSe(lexer_1.TipoToken.SenaoSe)) {
+        if (this.avancarSe(lexer_1.TipoToken.MasSe)) {
             alternativo = [this.analisarSeInterno()];
         }
         else if (this.avancarSe(lexer_1.TipoToken.Senao)) {
@@ -406,6 +406,40 @@ class AnalisadorSintatico {
             teste,
             corpo,
             alternativo,
+        };
+    }
+    analisarDeclaracaoEscolha() {
+        this.obterProximoToken(); // consome o token escolha
+        const discriminante = this.analisarExpressao();
+        this.avancar(lexer_1.TipoToken.AbreChave, "Chave de abertura '{' esperada depois da express\u00e3o de 'escolha'");
+        const casos = [];
+        let padrao;
+        while (this.naoNoFimDoArquivo() &&
+            this.tokens[0]?.tipo !== lexer_1.TipoToken.FechaChave &&
+            this.tokens[0]?.tipo !== lexer_1.TipoToken.FimDoArquivo) {
+            if (this.avancarSe(lexer_1.TipoToken.Caso)) {
+                const teste = this.analisarExpressao();
+                const corpo = this.analisarCorpo();
+                casos.push({ teste, corpo });
+            }
+            else if (this.avancarSe(lexer_1.TipoToken.Padrao)) {
+                if (padrao !== undefined) {
+                    console.error("Apenas um bloco 'padrao' \u00e9 permitido dentro de cada 'escolha'");
+                    process.exit(1);
+                }
+                padrao = this.analisarCorpo();
+            }
+            else {
+                console.error("'caso' ou 'padrao' esperado dentro de 'escolha', encontrado: ", this.tokens[0]);
+                process.exit(1);
+            }
+        }
+        this.avancar(lexer_1.TipoToken.FechaChave, "Chave de fechamento '}' esperada no fim de 'escolha'");
+        return {
+            tipo: "DeclaracaoEscolha",
+            discriminante,
+            casos,
+            padrao,
         };
     }
     analisarDeclaracaoTentarPegar() {
@@ -461,6 +495,8 @@ class AnalisadorSintatico {
                 return this.analisarDeclaracaoSe();
             case lexer_1.TipoToken.Para:
                 return this.analisarDeclaracaoPara();
+            case lexer_1.TipoToken.Escolha:
+                return this.analisarDeclaracaoEscolha();
             case lexer_1.TipoToken.Identificador:
                 if (this.tokens[0]?.valor === "tentar") {
                     return this.analisarDeclaracaoTentarPegar();

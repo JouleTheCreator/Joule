@@ -1,0 +1,19 @@
+// sistemaarq: funcao nativa que funciona com os arquivos do computador
+// escrever: escreve o texto no arquivo
+// existe: confirma se arquivo existe
+// ler: informa o conteudo no arquivo 
+// apagar: apaga o arquivo caso ele exista
+
+seja caminho = "teste_joule.txt"
+
+
+sistemaarq.escrever(caminho, "Linha gravada pelo Joule a Linguagem de programacao")
+imprimir("arquivo gravado")
+
+imprimir(sistemaarq.existe(caminho))
+
+seja conteudo = sistemaarq.ler(caminho)
+imprimir(conteudo)
+
+imprimir(sistemaarq.apagar(caminho))   
+imprimir(sistemaarq.existe(caminho))

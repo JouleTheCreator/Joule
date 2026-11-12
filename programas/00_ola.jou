@@ -1,0 +1,3 @@
+// imprimir: mostra um valor na tela
+
+imprimir ("Olá, Mundo!")

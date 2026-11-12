@@ -1,4 +1,4 @@
-export type TipoNo = "Programa" | "DeclaracaoVariavel" | "DeclaracaoFuncao" | "DeclaracaoSe" | "DeclaracaoPara" | "DeclaracaoTentarPegar" | "ExpressaoAtribuicao" | "ExpressaoMembro" | "ExpressaoChamada" | "Propriedade" | "LiteralObjeto" | "LiteralVetor" | "LiteralNumerico" | "Identificador" | "LiteralTexto" | "LiteralBooleano" | "LiteralNulo" | "ExpressaoBinaria" | "ExpressaoUnaria";
+export type TipoNo = "Programa" | "DeclaracaoVariavel" | "DeclaracaoFuncao" | "DeclaracaoSe" | "DeclaracaoPara" | "DeclaracaoEscolha" | "DeclaracaoTentarPegar" | "ExpressaoAtribuicao" | "ExpressaoMembro" | "ExpressaoChamada" | "Propriedade" | "LiteralObjeto" | "LiteralVetor" | "LiteralNumerico" | "Identificador" | "LiteralTexto" | "LiteralBooleano" | "LiteralNulo" | "ExpressaoBinaria" | "ExpressaoUnaria";
 /**
  * Declarações não resultam em um valor em tempo de execução.
 Elas contêm uma ou mais expressões internamente */
@@ -42,6 +42,27 @@ export interface DeclaracaoPara extends Declaracao {
     teste: Expressao;
     atualizacao: ExpressaoAtribuicao;
     corpo: Declaracao[];
+}
+/**
+ * Um ramo de uma DeclaracaoEscolha: `caso <teste> { ... }`.
+ * Nao e um No da AST por si so, apenas agrupa teste + corpo.
+ */
+export interface CasoEscolha {
+    teste: Expressao;
+    corpo: Declaracao[];
+}
+/**
+ * escolha <discriminante> {
+ *     caso <teste> { ... }
+ *     padrao { ... }
+ * }
+ * Nao existe fall-through: apenas o primeiro caso correspondente executa.
+ */
+export interface DeclaracaoEscolha extends Declaracao {
+    tipo: "DeclaracaoEscolha";
+    discriminante: Expressao;
+    casos: CasoEscolha[];
+    padrao?: Declaracao[];
 }
 /**  Expressões resultarão em um valor em tempo de execução, ao contrário de Declarações */
 export interface Expressao extends Declaracao {

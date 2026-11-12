@@ -11,8 +11,11 @@ export enum TipoToken {
   Funcao,
   Se,
   Senao,
-  SenaoSe,
+  MasSe,
   Para,
+  Escolha,
+  Caso,
+  Padrao,
 
   // Agrupamento e Operadores
   OperadorBinario,
@@ -50,8 +53,11 @@ const PALAVRAS_CHAVE: Record<string, TipoToken> = {
   funcao: TipoToken.Funcao,
   se: TipoToken.Se,
   senao: TipoToken.Senao,
-  senaose: TipoToken.SenaoSe,
+  masse: TipoToken.MasSe,
   para: TipoToken.Para,
+  escolha: TipoToken.Escolha,
+  caso: TipoToken.Caso,
+  padrao: TipoToken.Padrao,
 };
 
 const CARACTERES_TOKEN: Record<string, TipoToken> = {

@@ -1,0 +1,32 @@
+// escolha: cria uma estrutura de escolha
+// caso: bloco de codigo da estrutura escolha
+// padrao: 
+
+seja dia = 5
+
+escolha dia {
+    caso 1 { 
+        imprimir("Domingo") 
+    }
+    caso 2 { 
+        imprimir("Segunda") 
+    }
+    caso 3 { 
+        imprimir("Terca") 
+    }
+    caso 4 { 
+        imprimir("Quarta") 
+    }
+    caso 5 { 
+        imprimir("Quinta") 
+    }
+    caso 6 { 
+        imprimir("Sexta") 
+    }
+    caso 7 { 
+        imprimir("Sabado") 
+    }
+    padrao { 
+        imprimir("Dia inválido") 
+    }
+}

@@ -1,0 +1,4 @@
+// convum: converte um dado de tipo texto para numero
+seja a = convnum("42")
+
+imprimir( a + 10)

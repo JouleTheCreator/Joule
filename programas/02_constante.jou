@@ -1,0 +1,5 @@
+// constante: cria uma variavel imutavel
+
+constante nome = "Joule"
+
+imprimir(nome)
